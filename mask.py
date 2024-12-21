@@ -59,10 +59,13 @@ def get_color_for_attention_score(attention_score):
     """
     Return a tuple of three integers representing a shade of gray for the
     given `attention_score`. Each value should be in the range [0, 255].
-    """
-    # TODO: Implement this function
-    raise NotImplementedError
 
+    With an attention_score like this . . .
+        tf.Tensor(1.0, shape=(), dtype=float32)
+    use .numpy() to get the 1.0
+    """
+    value = round(attention_score.numpy() * 255)
+    return (value ,value, value)
 
 
 def visualize_attentions(tokens, attentions):
